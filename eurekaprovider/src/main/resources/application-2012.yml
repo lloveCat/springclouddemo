@@ -1,0 +1,13 @@
+server:
+  port: 2012
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:1011/eureka
+spring:
+  application:
+    name: firstProvider
+  cloud:
+    loadbalancer:
+      ribbon:
+        enabled: false

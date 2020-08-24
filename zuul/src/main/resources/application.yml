@@ -1,0 +1,33 @@
+server:
+    port: 4013
+spring:
+  application:
+    name: zuulProject
+zuul:
+  prefix: /test
+  routes:
+    first-service:
+      path: /first-service/**
+      #url: http://localhost:8080 //这里指响应请求转发到指定ip
+      service-id: FIRSTPROVIDER
+  retryable: true
+
+eureka:
+  client:
+    registry-fetch-interval-seconds: 5
+    service-url:
+      defaultZone: http://peer1:1011/eureka
+#ribbon:
+#  ConnectTimeout: 250
+#  ReadTimeout: 5000
+#  OkToRetryOnAllOperations: true
+#  MaxAutoRetriesNextServer: 2
+#  MaxAutoRetries: 2
+#
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 6000
